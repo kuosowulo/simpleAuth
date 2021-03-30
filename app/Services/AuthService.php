@@ -16,8 +16,6 @@ class AuthService
     }
     public function register($credential)
     {
-        return $this->authRepo->create($credential);
-
         try {
             return $this->authRepo->create($credential);
         } catch (\Exception $e) {
