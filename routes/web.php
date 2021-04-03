@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/login', 'AuthController@viewLoginPage');
 
 Route::post('/login', 'AuthController@login');
+
+Route::get('/thirdPartyAuth', 'AuthController@thirdPartyAuth');
+
+Route::get('/google/auth', 'AuthController@redirectToGoogleAuth');

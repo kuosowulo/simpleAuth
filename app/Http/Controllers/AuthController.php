@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use JWTAuth;
+use Illuminate\Http\Request;
 use App\Services\AuthService;
 use App\Http\Requests\LoginRequest;
 
@@ -43,5 +44,21 @@ class AuthController extends Controller
                 'token' => $token
             ]
         ]);
+    }
+
+    public function thirdPartyAuth(Request $request)
+    {
+        $third_party_type = $request->type ?? 'Google';
+
+        $url = $this->authService->thirdPartyAuth($third_party_type);
+        
+        return redirect($url);
+    }
+
+    public function redirectToGoogleAuth(Request $request)
+    {
+        $code = $request->code;
+
+        return $this->authService->getGoogleUserData($code);
     }
 }

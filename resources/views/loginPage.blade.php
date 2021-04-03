@@ -45,6 +45,9 @@
 						<button class="login100-form-btn" type="submit">
 							Login
 						</button>
+						<button class="login100-form-btn" onclick="location.href='thirdPartyAuth?type=Google'">
+							Google登入
+						</button>
 					</div>
 				</form>
 			</div>
