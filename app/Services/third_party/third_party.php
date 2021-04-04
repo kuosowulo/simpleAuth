@@ -9,7 +9,17 @@ abstract class third_party
         $this->setClient();
     }
 
+    /**
+     * 設定服務實體
+     *
+     * @return void
+     */
     abstract function setClient();
 
+    /**
+     * 產生登入網址
+     *
+     * @return void
+     */
     abstract function createAuthUrl();
 }

@@ -16,11 +16,22 @@ class AuthController extends Controller
         $this->authService = $authService;
     }
 
+    /**
+     * 取得登入頁面
+     *
+     * @return void
+     */
     public function viewLoginPage()
     {
         return view('loginPage');
     }
 
+    /**
+     * JWT登入
+     *
+     * @param LoginRequest $request
+     * @return void
+     */
     public function login(LoginRequest $request)
     {
         $credentials = request(['email', 'password']);
@@ -46,6 +57,12 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * 第三方登入
+     *
+     * @param Request $request
+     * @return void
+     */
     public function thirdPartyAuth(Request $request)
     {
         $third_party_type = $request->type ?? 'Google';
