@@ -45,7 +45,13 @@ class third_party_google extends third_party
         $this->client->fetchAccessTokenWithAuthCode($code);
 
         $google_service = new Google_Service_Oauth2($this->client);
-        $user_info = $google_service->userinfo->get();
+        
+        try {
+            $user_info = $google_service->userinfo->get();
+        } catch (\Exception $e) {
+            return 'credentail lost';
+        }
+
         dump($user_info);
     }
 }

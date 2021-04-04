@@ -22,3 +22,5 @@ Route::post('/login', 'AuthController@login');
 Route::get('/thirdPartyAuth', 'AuthController@thirdPartyAuth');
 
 Route::get('/google/auth', 'AuthController@redirectToGoogleAuth');
+
+Route::get('/facebook/auth', 'AuthController@redirectToFacebookAuth');

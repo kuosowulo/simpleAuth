@@ -61,4 +61,9 @@ class AuthController extends Controller
 
         return $this->authService->getGoogleUserData($code);
     }
+
+    public function redirectToFacebookAuth()
+    {
+        return $this->authService->getFacebookUserData();
+    }
 }
