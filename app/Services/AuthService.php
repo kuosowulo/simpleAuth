@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Repositories\AuthRepositary;
 use App\Exceptions\RegisterException;
 use Illuminate\Database\QueryException;
+use App\Services\third_party\Ithird_party;
 use App\Services\third_party\third_party_google;
 use App\Services\third_party\third_party_facebook;
 
@@ -28,22 +29,29 @@ class AuthService
         }
     }
 
-    public function thirdPartyAuth(string $thirdParty)
+    public function thirdPartyAuth(Ithird_party $third_party_service)
     {
+        $url = $third_party_service->createAuthUrl();
+
+        return $url;
+    }
+
+    public function createThirdPartyService(string $thirdParty) : Ithird_party
+    {
+        $thirdParty = strtolower($thirdParty);
+
         switch($thirdParty) {
-            case 'Facebook':
+            case 'facebook':
                 $third_party_service = new third_party_facebook();
                 break;
 
-            case 'Google':
+            case 'google':
             default:
                 $third_party_service = new third_party_google();
                 break;
         }
 
-        $url = $third_party_service->createAuthUrl();
-
-        return $url;
+        return $third_party_service;
     }
 
     public function getGoogleUserData($code)

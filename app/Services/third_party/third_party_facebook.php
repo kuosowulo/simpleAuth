@@ -4,10 +4,11 @@ namespace App\Services\third_party;
 
 use Facebook\Facebook;
 use App\Services\third_party\third_party;
-use Facebook\Exceptions\FacebookResponseException;
+use App\Services\third_party\Ithird_party;
 use Facebook\Exceptions\FacebookSDKException;
+use Facebook\Exceptions\FacebookResponseException;
 
-class third_party_facebook extends third_party
+class third_party_facebook extends third_party implements Ithird_party
 {
     const app_id = '948457975692893';
 

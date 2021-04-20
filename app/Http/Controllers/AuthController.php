@@ -67,7 +67,9 @@ class AuthController extends Controller
     {
         $third_party_type = $request->type ?? 'Google';
 
-        $url = $this->authService->thirdPartyAuth($third_party_type);
+        $third_party_service = $this->authService->createThirdPartyService($third_party_type);
+
+        $url = $this->authService->thirdPartyAuth($third_party_service);
         
         return redirect($url);
     }

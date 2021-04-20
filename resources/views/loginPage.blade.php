@@ -48,7 +48,7 @@
 						<button class="login100-form-btn" onclick="location.href='thirdPartyAuth?type=Google'">
 							Google登入
 						</button>
-						<button class="login100-form-btn" onclick="location.href='thirdPartyAuth?type=Google'">
+						<button class="login100-form-btn" onclick="location.href='thirdPartyAuth?type=Facebook'">
 							FB登入
 						</button>
 					</div>

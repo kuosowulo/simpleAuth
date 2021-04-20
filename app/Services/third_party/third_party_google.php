@@ -5,8 +5,9 @@ namespace App\Services\third_party;
 use Google_Client;
 use Google_Service_Oauth2;
 use App\Services\third_party\third_party;
+use App\Services\third_party\Ithird_party;
 
-class third_party_google extends third_party
+class third_party_google extends third_party implements Ithird_party
 {
     const Google_auth_config = '{"web":{"client_id":"740197481403-m8lr4er4029aq7mtot1s5oibvmcdfusa.apps.googleusercontent.com","project_id":"agile-producer-309606","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"7-haeedghe8so8i3Ilkb7IBP","redirect_uris":["http://127.0.0.1:81/simpleAuth/public/google/auth"]}}';
 
